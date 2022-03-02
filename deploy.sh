@@ -1,2 +1,4 @@
 echo "Runing file and create dir"
-echo "demo line" > demo.txt
+git checkout -- .
+git checkout staging
+git pull origin staging
