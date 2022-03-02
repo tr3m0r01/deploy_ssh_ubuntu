@@ -27,6 +27,4 @@ jobs:
 
                   script: |
                       cd /var/www/html
-                      echo "I am $FOO"
-                      echo "I am $BAR"
-                      echo "sha: $SHA"
+                      bash deploy.sh
