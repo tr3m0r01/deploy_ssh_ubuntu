@@ -26,5 +26,5 @@ jobs:
                   key: ${{ secrets.STAGING_KEY }}
 
                   script: |
-                      cd /var/www/html
+                      cd /var/www/html/deploy_ssh_ubuntu
                       bash deploy.sh
