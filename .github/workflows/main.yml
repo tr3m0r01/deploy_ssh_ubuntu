@@ -1,0 +1,30 @@
+#Yaml github action
+
+name: Deploying staging
+
+on:
+    push:
+        branches:
+            - staging
+
+jobs:
+    deploy:
+        timeout-minutes: 3
+
+        name: Deploy hangar to staging
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Repository checkout
+              uses: actions/checkout@v2
+
+            - name: Execute deploy using ssh
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.STAGING_HOST }}
+                  username: ${{ secrets.STAGING_USER }}
+                  key: ${{ secrets.STAGING_KEY }}
+
+                  script: |
+                      cd /var/www/html/deploy_ssh_ubuntu
+                      bash deploy.sh
